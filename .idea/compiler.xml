@@ -9,8 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="product-service" />
         <module name="customer-service" />
-        <module name="gateway" />
         <module name="discovery-service" />
+        <module name="gateway" />
+        <module name="Product_service" />
         <module name="billing-service" />
       </profile>
     </annotationProcessing>
@@ -20,10 +21,12 @@
       <module name="discovery-service" target="11" />
       <module name="gateway" target="11" />
       <module name="product-service" target="11" />
+      <module name="Product_service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Product_service" options="-parameters" />
       <module name="billing-service" options="-parameters" />
       <module name="customer-service" options="-parameters" />
       <module name="discovery-service" options="-parameters" />
