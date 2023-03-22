@@ -1,5 +1,6 @@
 package org.sid.customerservice;
 
+import com.github.javafaker.Faker;
 import org.sid.customerservice.entities.Customer;
 import org.sid.customerservice.repository.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -16,7 +17,7 @@ public class CustomerServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(CustomerServiceApplication.class, args);
     }
-    @Bean
+    /*@Bean
     public CommandLineRunner commandLineRunner(CustomerRepository customerRepository,
                                                RepositoryRestConfiguration restConfiguration){
         return args -> {
@@ -32,6 +33,11 @@ public class CustomerServiceApplication {
                 System.out.println(c);
             });
         };
+    }*/
+
+    @Bean
+    Faker makeFaker(){
+        return new Faker();
     }
 
 }
