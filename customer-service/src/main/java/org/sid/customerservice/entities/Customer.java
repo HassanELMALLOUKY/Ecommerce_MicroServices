@@ -4,13 +4,14 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "customers")
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
-public class Customer {
+@Data @NoArgsConstructor
+public class Customer implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
@@ -26,5 +27,13 @@ public class Customer {
     @OneToOne
     private User user;
 
-
+    public Customer(Long id, String fistName, String lastName, LocalDate birthday, String phoneNumber, List<Address> addresses, User user) {
+        this.id = id;
+        this.fistName = fistName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.addresses = addresses;
+        this.user = user;
+    }
 }

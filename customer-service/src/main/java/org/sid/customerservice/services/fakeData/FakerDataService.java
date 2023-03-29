@@ -8,16 +8,20 @@ import org.sid.customerservice.repository.AddressRepository;
 import org.sid.customerservice.repository.CustomerRepository;
 import org.sid.customerservice.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class FakerDataService {
     private CustomerRepository customerRepository;
     private UserRepository userRepository;
     private AddressRepository addressRepository;
     private Faker faker;
+    private List<Address> addresses=new ArrayList<>();
 
     public FakerDataService(CustomerRepository customerRepository, UserRepository userRepository, AddressRepository addressRepository, Faker faker) {
         this.customerRepository = customerRepository;
@@ -31,8 +35,8 @@ public class FakerDataService {
         for (int i = 0; i < count; i++) {
             User user=userRepository.save(new User(faker.name().username(),faker.internet().emailAddress(),faker.internet().password()));
             Address address=addressRepository.save(new Address(faker.address().streetAddress(),faker.address().city(), faker.address().state(),faker.address().zipCode()));
-            Customer customer=customerRepository.save(new Customer(null,faker.name().firstName(),faker.name().lastName(),faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),faker.phoneNumber().phoneNumber(), List.of(address),user));
-            //customerRepository.save(customer);
+            addresses.add(address);
+            Customer customer=customerRepository.save(new Customer(null,faker.name().firstName(),faker.name().lastName(),faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),faker.phoneNumber().phoneNumber(), addresses,user));
         }
     }
 }

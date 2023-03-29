@@ -1,12 +1,14 @@
 package org.sid.customerservice.services;
 
 import org.sid.customerservice.entities.Customer;
+import org.sid.customerservice.entities.dto.CustomerDTO;
 
 import java.util.List;
 
 public interface ICustomerService {
-    Customer getCustomer(Long id);
+    CustomerDTO getCustomer(Long id);
     List<Customer> getAllCustomer();
-    Customer updateCustomer(Long id,Customer customer);
+    CustomerDTO createCustomer(CustomerDTO customerDTO);
+    CustomerDTO updateCustomer(Long id,CustomerDTO customer);
     void deleteCustomer(Long id);
 }

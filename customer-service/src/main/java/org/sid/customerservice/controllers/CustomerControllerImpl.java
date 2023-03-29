@@ -1,31 +1,61 @@
 package org.sid.customerservice.controllers;
 
 import org.sid.customerservice.entities.Customer;
+import org.sid.customerservice.entities.dto.CustomerDTO;
+import org.sid.customerservice.entities.mappers.CustomerMapper;
 import org.sid.customerservice.services.Impl1.CustomerService;
 import org.sid.customerservice.services.fakeData.FakerDataService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+@RequestMapping("/api/customer")
 @RestController
 public class CustomerControllerImpl implements ICustomerController{
     private CustomerService customerService;
     private FakerDataService fakerDataService;
+    private CustomerMapper customerMapper;
 
-    public CustomerControllerImpl(CustomerService customerService, FakerDataService fakerDataService) {
+    public CustomerControllerImpl(CustomerService customerService, FakerDataService fakerDataService, CustomerMapper customerMapper) {
         this.customerService = customerService;
         this.fakerDataService = fakerDataService;
+        this.customerMapper = customerMapper;
     }
-    @GetMapping("/api/generate/{count}")
+    @GetMapping("/generate/{count}")
     @Override
-    public List<Customer> generatedata(@PathVariable int count) {
+    public @ResponseBody List<CustomerDTO> generatedata(@PathVariable int count) {
         fakerDataService.createCustomers(count);
-        return customerService.getAllCustomer();
+        List<CustomerDTO> customerDTOList=new ArrayList<>();
+        customerService.getAllCustomer().forEach(customer -> {
+            customerDTOList.add(customerMapper.toDTO(customer));
+        });
+        return customerDTOList;
+    }
+    @GetMapping("/{id}")
+    @Override
+    public CustomerDTO getCustomer(Long id) {
+        return customerService.getCustomer(id);
     }
 
+    @GetMapping("")
     @Override
-    public List<Customer> getAllCustomers() {
-        return null;
+    public @ResponseBody List<Customer> getAllCustomers() {
+        return customerService.getAllCustomer();
+    }
+    @PostMapping("")
+    @Override
+    public @ResponseBody CustomerDTO createCustomer(@RequestBody CustomerDTO customerDTO) {
+        customerService.createCustomer(customerDTO);
+        return customerDTO;
+    }
+    @PutMapping("/{id}")
+    @Override
+    public @ResponseBody CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customer) {
+        return customerService.updateCustomer(id,customer);
+    }
+    @DeleteMapping("/{id}")
+    @Override
+    public void deleteCustomer(@PathVariable Long id) {
+        customerService.deleteCustomer(id);
     }
 }
