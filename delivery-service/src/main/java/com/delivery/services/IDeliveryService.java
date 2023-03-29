@@ -1,7 +1,7 @@
-package org.sid.discoveryservice.services;
+package com.delivery.services;
 
-import org.sid.discoveryservice.entities.Delivery;
-import org.sid.discoveryservice.entities.dto.DeliveryDto;
+
+import com.delivery.entities.dto.DeliveryDto;
 
 import java.util.List;
 

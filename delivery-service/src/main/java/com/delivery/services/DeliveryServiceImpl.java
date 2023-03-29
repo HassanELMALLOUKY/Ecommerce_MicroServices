@@ -1,9 +1,9 @@
-package org.sid.discoveryservice.services;
+package com.delivery.services;
 
-import org.sid.discoveryservice.entities.Delivery;
-import org.sid.discoveryservice.entities.dto.DeliveryDto;
-import org.sid.discoveryservice.entities.mappers.DeliveryMapper;
-import org.sid.discoveryservice.repositories.DeliveryRepository;
+import com.delivery.entities.Delivery;
+import com.delivery.entities.dto.DeliveryDto;
+import com.delivery.entities.mappers.DeliveryMapper;
+import com.delivery.repositories.DeliveryRepository;
 
 import java.util.ArrayList;
 import java.util.List;

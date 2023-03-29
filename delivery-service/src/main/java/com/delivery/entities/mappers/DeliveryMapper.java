@@ -1,13 +1,13 @@
-package org.sid.discoveryservice.entities.mappers;
+package com.delivery.entities.mappers;
 
+import com.delivery.entities.Delivery;
+import com.delivery.entities.dto.DeliveryDto;
 import org.mapstruct.Mapper;
-import org.sid.discoveryservice.entities.Delivery;
-import org.sid.discoveryservice.entities.dto.DeliveryDto;
 import org.springframework.stereotype.Service;
 
 @Mapper(componentModel = "spring")
 @Service
 public interface DeliveryMapper {
-    DeliveryDto toDTO(Delivery customer);
+    DeliveryDto toDTO(Delivery delivery);
     Delivery toEntity(DeliveryDto customerDTO);
 }

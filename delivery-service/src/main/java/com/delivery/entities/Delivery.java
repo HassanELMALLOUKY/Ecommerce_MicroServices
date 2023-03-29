@@ -1,10 +1,9 @@
-package org.sid.discoveryservice.entities;
+package com.delivery.entities;
 
+import com.delivery.entities.enumeration.DeliveryStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.sid.discoveryservice.entities.enumeration.DeliveryStatus;
-import org.sid.discoveryservice.entities.models.Product;
 
 import javax.persistence.*;
 
