@@ -44,7 +44,6 @@ public class ProduitController {
     public DtoProduitResponse AjouterProduit(@ModelAttribute DtoProduitRequest produitRequest ,
                                              @RequestParam("file") MultipartFile file) throws IOException {
 
-
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         produitRequest.setImage(fileName);
         String uploadDir = "Product_service/product-photos" ;

@@ -1,4 +1,4 @@
-package org.sid.discoveryservice.entities.enumeration;
+package com.delivery.entities.enumeration;
 
 public enum DeliveryStatus {
     PENDING,
