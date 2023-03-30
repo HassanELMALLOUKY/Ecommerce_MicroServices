@@ -13,12 +13,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Paiment {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id_commande ;
     private Long Id_client;
     private Long id_prouduit ;
     private int quantite ;
+    private  double prixTotale;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date birthday;
     @Transient
