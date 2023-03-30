@@ -31,13 +31,13 @@ public class CustomerControllerImpl implements ICustomerController{
         });
         return customerDTOList;
     }
-    @GetMapping("/{id}")
+    @GetMapping("/getCustomer/{id}")
     @Override
     public CustomerDTO getCustomer(Long id) {
         return customerService.getCustomer(id);
     }
 
-    @GetMapping("")
+    @GetMapping("/getAllCustomers")
     @Override
     public @ResponseBody List<Customer> getAllCustomers() {
         return customerService.getAllCustomer();

@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="delivery-service" />
+        <module name="descovery" />
         <module name="product-service" />
-        <module name="discovery-service" />
+        <module name="demo" />
         <module name="gateway" />
         <module name="Product_service" />
+        <module name="discovery-service" />
         <module name="billing-service" />
       </profile>
       <profile name="Annotation profile for customer-service" enabled="true">
@@ -29,6 +30,8 @@
       <module name="billing-service" target="11" />
       <module name="customer-service" target="1.8" />
       <module name="delivery-service" target="11" />
+      <module name="demo" target="11" />
+      <module name="descovery" target="11" />
       <module name="discovery-service" target="11" />
       <module name="gateway" target="11" />
       <module name="product-service" target="11" />
@@ -41,6 +44,8 @@
       <module name="billing-service" options="-parameters" />
       <module name="customer-service" options="-parameters" />
       <module name="delivery-service" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="descovery" options="-parameters" />
       <module name="discovery-service" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="product-service" options="-parameters" />
