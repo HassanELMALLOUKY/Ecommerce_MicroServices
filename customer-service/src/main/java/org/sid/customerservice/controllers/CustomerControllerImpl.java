@@ -3,6 +3,7 @@ package org.sid.customerservice.controllers;
 import org.sid.customerservice.entities.Customer;
 import org.sid.customerservice.entities.dto.CustomerDTO;
 import org.sid.customerservice.entities.mappers.CustomerMapper;
+import org.sid.customerservice.entities.mappers.Mapper;
 import org.sid.customerservice.services.Impl1.CustomerService;
 import org.sid.customerservice.services.fakeData.FakerDataService;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +15,11 @@ import java.util.List;
 public class CustomerControllerImpl implements ICustomerController{
     private CustomerService customerService;
     private FakerDataService fakerDataService;
-    private CustomerMapper customerMapper;
-
-    public CustomerControllerImpl(CustomerService customerService, FakerDataService fakerDataService, CustomerMapper customerMapper) {
+    private Mapper mapper;
+    public CustomerControllerImpl(CustomerService customerService, FakerDataService fakerDataService, Mapper mapper) {
         this.customerService = customerService;
         this.fakerDataService = fakerDataService;
-        this.customerMapper = customerMapper;
+        this.mapper = mapper;
     }
     @GetMapping("/generate/{count}")
     @Override
@@ -27,19 +27,21 @@ public class CustomerControllerImpl implements ICustomerController{
         fakerDataService.createCustomers(count);
         List<CustomerDTO> customerDTOList=new ArrayList<>();
         customerService.getAllCustomer().forEach(customer -> {
-            customerDTOList.add(customerMapper.toDTO(customer));
+            customerDTOList.add(mapper.toDto(customer));
         });
         return customerDTOList;
     }
-    @GetMapping("/getCustomer/{id}")
+    @GetMapping("/{id}")
     @Override
-    public CustomerDTO getCustomer(Long id) {
+    public CustomerDTO getCustomer(@PathVariable Long id) {
+
         return customerService.getCustomer(id);
     }
 
-    @GetMapping("/getAllCustomers")
+    @GetMapping("/all")
     @Override
     public @ResponseBody List<Customer> getAllCustomers() {
+
         return customerService.getAllCustomer();
     }
     @PostMapping("")

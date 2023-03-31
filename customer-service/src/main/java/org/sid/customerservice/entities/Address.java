@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "addresses")
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data  @AllArgsConstructor
 public class Address implements Serializable {
 
     @Id
@@ -34,5 +34,6 @@ public class Address implements Serializable {
         this.state = state;
         this.postalCode = postalCode;
     }
+    public Address(){}
 }
 

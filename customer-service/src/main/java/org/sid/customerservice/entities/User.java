@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data @AllArgsConstructor
 public class User implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,5 +45,5 @@ public class User implements Serializable {
     public void onUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
-
+    public User(){}
 }
