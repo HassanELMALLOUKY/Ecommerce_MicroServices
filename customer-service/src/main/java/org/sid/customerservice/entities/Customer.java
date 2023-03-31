@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "customers")
-@Data @NoArgsConstructor
+@Data
 public class Customer implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,7 +26,7 @@ public class Customer implements Serializable {
     private List<Address> addresses;
     @OneToOne
     private User user;
-
+    public Customer(){}
     public Customer(Long id, String fistName, String lastName, LocalDate birthday, String phoneNumber, List<Address> addresses, User user) {
         this.id = id;
         this.fistName = fistName;

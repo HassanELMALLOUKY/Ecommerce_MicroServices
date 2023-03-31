@@ -3,6 +3,7 @@ package org.sid.customerservice.services.Impl1;
 import org.sid.customerservice.entities.Customer;
 import org.sid.customerservice.entities.dto.CustomerDTO;
 import org.sid.customerservice.entities.mappers.CustomerMapper;
+import org.sid.customerservice.entities.mappers.Mapper;
 import org.sid.customerservice.repository.CustomerRepository;
 import org.sid.customerservice.services.ICustomerService;
 import org.springframework.stereotype.Service;
@@ -13,18 +14,18 @@ import java.util.List;
 @Transactional
 public class CustomerService implements ICustomerService {
     private CustomerRepository customerRepository;
-    private CustomerMapper customerMapper;
+    private Mapper mapper;
 
-    public CustomerService(CustomerRepository customerRepository, CustomerMapper customerMapper) {
+    public CustomerService(CustomerRepository customerRepository, Mapper mapper) {
         this.customerRepository = customerRepository;
-        this.customerMapper = customerMapper;
+        this.mapper = mapper;
     }
 
     @Override
     public CustomerDTO getCustomer(Long id) {
         Customer customer=customerRepository.findById(id).orElse(null);
 
-        return customerMapper.toDTO(customer) ;
+        return mapper.toDto(customer) ;
     }
 
     @Override
@@ -34,17 +35,17 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public CustomerDTO createCustomer(CustomerDTO customerDTO) {
-        Customer customer=customerMapper.toEntity(customerDTO);
+        Customer customer=mapper.toEntity(customerDTO);
         customerRepository.save(customer);
-        return  customerMapper.toDTO(customer);
+        return  mapper.toDto(customer);
 
     }
 
     @Override
     public CustomerDTO updateCustomer(Long id,CustomerDTO customerDTO) {
-        Customer customer=customerMapper.toEntity(customerDTO);
+        Customer customer=mapper.toEntity(customerDTO);
         customerRepository.save(customer);
-        return customerMapper.toDTO(customer);
+        return mapper.toDto(customer);
     }
 
     @Override
