@@ -5,14 +5,12 @@ import com.mid.product_service.ImportImage.FileUploadUtil;
 import com.mid.product_service.dto.DtoProduitRequest;
 import com.mid.product_service.dto.DtoProduitResponse;
 import com.mid.product_service.entities.Produit;
-import com.mid.product_service.services.ProduitService;
 import com.mid.product_service.services.ProduitServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.ws.rs.Consumes;
 import java.io.IOException;
 import java.util.List;

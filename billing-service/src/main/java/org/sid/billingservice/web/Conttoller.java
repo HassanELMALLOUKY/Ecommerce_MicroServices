@@ -1,6 +1,4 @@
 package org.sid.billingservice.web;
-
-
 import lombok.AllArgsConstructor;
 import org.sid.billingservice.DTO.PaiementRequest;
 import org.sid.billingservice.DTO.PaiementResponse;
@@ -12,7 +10,6 @@ import org.sid.billingservice.openFeing.ProuduitRestService;
 import org.sid.billingservice.services.ServicePaiementImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
