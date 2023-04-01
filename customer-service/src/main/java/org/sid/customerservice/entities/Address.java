@@ -24,9 +24,6 @@ public class Address implements Serializable {
     private String state;
 
     private String postalCode;
-    @JsonIgnore
-    @ManyToOne()
-    private Customer customer;
 
     public Address(String street, String city, String state, String postalCode) {
         this.street = street;
@@ -35,5 +32,14 @@ public class Address implements Serializable {
         this.postalCode = postalCode;
     }
     public Address(){}
+
+    @Override
+    public String toString() {
+        return "Address:" +
+                "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", postalCode='" + postalCode + '\'';
+    }
 }
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class Mapper {
     public CustomerDTO toDto(Customer customer){
         CustomerDTO customerDTO=new CustomerDTO();
+        customerDTO.setAddress(customer.getAddresse().toString());
         BeanUtils.copyProperties(customer,customerDTO);
         return customerDTO;
     }
