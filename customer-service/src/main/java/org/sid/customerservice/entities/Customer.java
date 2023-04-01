@@ -22,18 +22,18 @@ public class Customer implements Serializable {
     private LocalDate birthday;
     @Column(nullable = false)
     private String phoneNumber;
-    @OneToMany(mappedBy = "customer")
-    private List<Address> addresses;
+    @OneToOne()
+    private Address addresse;
     @OneToOne
     private User user;
     public Customer(){}
-    public Customer(Long id, String fistName, String lastName, LocalDate birthday, String phoneNumber, List<Address> addresses, User user) {
+    public Customer(Long id, String fistName, String lastName, LocalDate birthday, String phoneNumber, Address addresse, User user) {
         this.id = id;
         this.fistName = fistName;
         this.lastName = lastName;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
-        this.addresses = addresses;
+        this.addresse = addresse;
         this.user = user;
     }
 }
