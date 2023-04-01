@@ -10,7 +10,6 @@
         <module name="descovery" />
         <module name="customer-service" />
         <module name="product-service" />
-        <module name="demo" />
         <module name="gateway" />
         <module name="Product_service" />
         <module name="discovery-service" />

@@ -54,6 +54,10 @@
             <artifactId>spring-boot</artifactId>
             <groupId>org.springframework.boot</groupId>
         </dependency>
+        <dependency>
+            <artifactId>spring-core</artifactId>
+            <groupId>org.springframework</groupId>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>

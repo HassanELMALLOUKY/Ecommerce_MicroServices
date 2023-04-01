@@ -36,7 +36,7 @@ public class ServicePaiementImpl implements  PaiementService {
                     paiments.get(i).setProuduit(prouduits.get(j));
             }
 
-            for(int k=0 ; k<prouduits.size(); k++) {
+            for(int k=0 ; k<clients.size(); k++) {
                 if(clients.get(k).getId()==paiments.get(i).getId_client())
                     paiments.get(i).setClient(clients.get(k));
             }
