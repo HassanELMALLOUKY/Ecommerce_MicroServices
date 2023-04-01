@@ -46,6 +46,13 @@ public class ProduitServiceImpl implements ProduitService{
     }
 
     @Override
+    public DtoProduitResponse updateQauntiteStock(Produit produit) {
+        Produit produitUpdate=produitRepos.save(produit);
+        DtoProduitResponse dtoProduitResponse=produitMapper.ProduitRes(produitUpdate);
+        return dtoProduitResponse;
+    }
+
+    @Override
     public void deleteProduit(Long id) {
         produitRepos.deleteById(id);
 

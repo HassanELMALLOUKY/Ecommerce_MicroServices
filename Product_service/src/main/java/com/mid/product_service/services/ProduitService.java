@@ -11,6 +11,7 @@ public interface ProduitService {
     List<DtoProduitResponse> getProduits();
     DtoProduitResponse SaveProduit(DtoProduitRequest produitRequest);
     DtoProduitResponse updateProduit(Produit produit);
+    DtoProduitResponse updateQauntiteStock(Produit produit);
     void deleteProduit(Long id);
 
 }

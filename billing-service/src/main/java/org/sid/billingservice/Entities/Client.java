@@ -10,6 +10,7 @@ public class Client {
     private String fistName;
     private String lastName;
     private String phoneNumber;
-    private String email ;
+     private User user ;
+   // private String email ;
 
 }

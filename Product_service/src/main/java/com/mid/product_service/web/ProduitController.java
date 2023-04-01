@@ -62,6 +62,12 @@ public class ProduitController {
         return  produitService.updateProduit(produit);
     }
 
+    @PutMapping("/updateStock")
+    public  DtoProduitResponse updateStock(@RequestBody Produit produit){
+        return  produitService.updateQauntiteStock(produit);
+    }
+
+
     @DeleteMapping("deleteProduit/{id}")
     public  void deleteProduit(@PathVariable(name = "id") Long id ){
 

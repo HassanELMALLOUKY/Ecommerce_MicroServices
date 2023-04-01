@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "CLIENT-SERVICE")
+@FeignClient(name = "CUSTOMER-SERVICE")
 public interface ClientRestService {
-    @GetMapping(path = "/api/ServiceClient/GetClient/{id}")
+    @GetMapping(path = "/api/customer/{id}")
     Client getClient(@PathVariable(name = "id") Long id);
 
-    @GetMapping(path = "/api/ServiceClient/GetClients")
+    @GetMapping(path = "/api/customer/all")
     List<Client> gettClients ();
 
 }
