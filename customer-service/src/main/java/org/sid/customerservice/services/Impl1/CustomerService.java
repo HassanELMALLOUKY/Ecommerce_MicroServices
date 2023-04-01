@@ -7,8 +7,7 @@ import org.sid.customerservice.entities.mappers.Mapper;
 import org.sid.customerservice.repository.CustomerRepository;
 import org.sid.customerservice.services.ICustomerService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
+import javax.transaction.Transactional;
 import java.util.List;
 @Service
 @Transactional

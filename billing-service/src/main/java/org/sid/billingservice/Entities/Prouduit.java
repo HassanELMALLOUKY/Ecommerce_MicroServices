@@ -10,4 +10,6 @@ public class Prouduit {
     private int Quantite_stock ;
     private  double prix ;
     private String categorie;
+    private String description ;
+    private  String image ;
 }

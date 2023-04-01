@@ -8,14 +8,12 @@ import org.sid.customerservice.repository.AddressRepository;
 import org.sid.customerservice.repository.CustomerRepository;
 import org.sid.customerservice.repository.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Transactional
 public class FakerDataService {
     private CustomerRepository customerRepository;
     private UserRepository userRepository;
